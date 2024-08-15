@@ -1,36 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 
-const ModalEdit = ({ isOpen, onRequestClose, aluno, onEdit }) => {
+const ModalPost = ({ isOpen, onRequestClose, onAdd }) => {
     const [nome, setNome] = useState('');
     const [idade, setIdade] = useState('');
     const [curso, setCurso] = useState('');
     const [telefone, setTelefone] = useState('');
 
-    useEffect(() => {
-        if (aluno) {
-            setNome(aluno.nome || '');
-            setIdade(aluno.idade || '');
-            setCurso(aluno.curso || '');
-            setTelefone(aluno.telefone || '');
-        }
-    }, [aluno]);
-
     const handleSubmit = async (e) => {
-        e.preventDefault();
+      e.preventDefault();
 
-        const updatedAluno = {
-            ...aluno,
-            nome,
-            idade,
-            curso,
-            telefone,
-        };
+      const newAluno = { nome, idade, curso, telefone }
 
-        await onEdit(updatedAluno);
+      try {
+        const response = await fetch('http://localhost:3000/alunos', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(newAluno),
+        })
 
-        onRequestClose();
-    };
+        if (response.ok) {
+          const addedAluno = await response.json()
+          onAdd(addedAluno)
+          onRequestClose()
+        }else {
+          console.error('Erro ao adicionar aluno')
+        }
+      } catch (error) {
+        console.error(error)
+      }
+    }
   
     return (
       <Modal
@@ -99,10 +100,10 @@ const ModalEdit = ({ isOpen, onRequestClose, aluno, onEdit }) => {
               />
             </div>
           </div>
-          <button type="submit" style={{ marginTop: '20px' }}>Salvar alterações</button>
+          <button type="submit" style={{ marginTop: '20px' }}>Adicionar</button>
         </form>
       </Modal>
     );
 };
 
-export default ModalEdit;
+export default ModalPost;

@@ -51,9 +51,16 @@ app.put('/alunos/:id', (req, res) => {
     }
 });
 
-app.delete('/aluno/:id', (req, res) => {
-    alunos = alunos.filter(a => a.id !== parseInt(req.params.id));
-    res.status(204).send();
+app.delete('/alunos/:id', (req, res) => {
+    const alunoId = parseInt(req.params.id);
+    const alunoIndex = alunos.findIndex(a => a.id === alunoId);
+
+    if (alunoIndex !== -1) {
+        alunos.splice(alunoIndex, 1);
+        res.status(204).send();
+    } else {
+        res.status(404).send('Aluno não encontrado');
+    }
 });
 
 app.listen(port, () => {
