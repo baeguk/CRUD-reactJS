@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #ebe4bc;
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 10px;
+  font-weight: 600;
+}
+
+.active {
+  color: #982B1C;
+  font-weight: 600;
+}
+
+.notActive {
+  color: black;
+}
+
+.nav {
+  width: 98%;
+  height: 25px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+.nav ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-decoration: none;
+  list-style: none;
+}
+.nav ul a {
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.titulo {
+  display: flex;
+  width: 98%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+}
+.titulo span {
+  font-weight: 700;
+  font-size: 22px;
+}
+.titulo .novoButton {
+  background-color: #800000;
+  color: #fff;
+  font-weight: bold;
+  height: 30px;
+  border: none;
+  width: 70px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.titulo .novoButton:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.tableDiv {
+  overflow: auto;
+  height: 77vh;
+  width: 98%;
+  margin-left: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.tableDiv table {
+  width: 100%;
+  margin-left: 10px;
+  margin-top: 10px;
+  padding-left: 10px;
+}
+.tableDiv table th {
+  text-align: start;
+}
+.tableDiv table .action {
+  color: #800000;
+  font-size: 19px;
+  margin-left: 5px;
+  cursor: pointer;
+}/*# sourceMappingURL=styles.css.map */
