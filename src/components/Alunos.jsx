@@ -7,8 +7,8 @@ import ModalPost from './ModalPost';
 const Alunos = () => {
   const [alunos, setAlunos] = useState([]);
   const [isModalEditOpen, setModalEditOpen] = useState(false);
-  const [selectedAluno, setSelectedAluno] = useState(null);
   const [isModalPostOpen, setModalPostOpen] = useState(false);
+  const [selectedAluno, setSelectedAluno] = useState(null);
 
   function openModal(aluno) {
     setSelectedAluno(aluno)

@@ -54,15 +54,15 @@ const ModalEdit = ({ isOpen, onRequestClose, aluno, onEdit }) => {
             outline: "none",
             backgroundColor: "#fff",
             borderRadius: "4px",
-            width: "600px",
+            width: "400px",
             height: "auto",
           },
         }}
       >
-        <button onClick={onRequestClose} style={{ alignSelf: 'flex-end', marginBottom: '10px' }}>x</button>
+        <button onClick={onRequestClose} className='xButton' style={{ alignSelf: 'flex-end', marginBottom: '10px' }}>x</button>
         <form onSubmit={handleSubmit}>
           <div style={{ display: 'grid', gap: '10px' }}>
-            <div>
+            <div className='input'>
               <span>Nome:</span>
               <input
                 type="text"
@@ -71,7 +71,7 @@ const ModalEdit = ({ isOpen, onRequestClose, aluno, onEdit }) => {
                 onChange={(e) => setNome(e.target.value)}
               />
             </div>
-            <div>
+            <div className='input'>
               <span>Idade:</span>
               <input
                 type="number"
@@ -80,7 +80,7 @@ const ModalEdit = ({ isOpen, onRequestClose, aluno, onEdit }) => {
                 onChange={(e) => setIdade(e.target.value)}
               />
             </div>
-            <div>
+            <div className='input'>
               <span>Curso:</span>
               <input
                 type="text"
@@ -89,7 +89,7 @@ const ModalEdit = ({ isOpen, onRequestClose, aluno, onEdit }) => {
                 onChange={(e) => setCurso(e.target.value)}
               />
             </div>
-            <div>
+            <div className='input'>
               <span>Telefone:</span>
               <input
                 type="text"
@@ -99,7 +99,7 @@ const ModalEdit = ({ isOpen, onRequestClose, aluno, onEdit }) => {
               />
             </div>
           </div>
-          <button type="submit" style={{ marginTop: '20px' }}>Salvar alterações</button>
+          <button className='sendButton' type="submit" style={{ marginTop: '20px' }}>Salvar alterações</button>
         </form>
       </Modal>
     );
